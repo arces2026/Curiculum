@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marco Brusca - CV Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap"
+      rel="stylesheet" />
+    <style>
+      /* RESET & BASE */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          sans-serif;
+        background: #e6edf4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 32px;
+      }
+      .cv {
+        max-width: 1000px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 20px 60px rgba(0, 20, 40, 0.18);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 270px 1fr;
+        transition: all 0.2s;
+      }
+
+      /* SIDEBAR SINISTRA */
+      .sidebar {
+        background: #0b1c2f;
+        color: #e8edf2;
+        padding: 32px 22px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .avatar {
+        text-align: center;
+        margin-bottom: 4px;
+      }
+      .avatar-circle {
+        width: 100px;
+        height: auto;
+        background: linear-gradient(145deg, #2a4b6e, #1a314a);
+        border-radius: 50%;
+        margin: 0 auto 10px;
+        /*display: flex;
+            align-items: center;
+            justify-content: center;*/
+        border: 3px solid #4c8bb0;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+        object-fit: cover;
+      }
+      .avatar-circle span {
+        font-size: 44px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 2px;
+        opacity: 0.9;
+      }
+      .sidebar h1 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        letter-spacing: 1px;
+        line-height: 1.2;
+      }
+      .sidebar .title-role {
+        text-align: center;
+        font-size: 13px;
+        font-weight: 400;
+        color: #94b8d4;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 6px 12px;
+        border-radius: 40px;
+        display: inline-block;
+        margin: 2px auto 0;
+        letter-spacing: 0.3px;
+      }
+      .divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 4px 0 2px;
+      }
+      .sidebar-section h3 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: #8bb3d0;
+        margin-bottom: 8px;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 6px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12.5px;
+        line-height: 1.5;
+        color: #d3dee8;
+        margin-bottom: 4px;
+      }
+      .contact-item i {
+        font-style: normal;
+        font-weight: 300;
+        width: 18px;
+        color: #6c9fc7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-item i svg {
+        width: 16px;
+        height: 16px;
+        fill: #6c9fc7;
+        display: block;
+      }
+      .contact-item a {
+        color: #cbdae6;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .contact-item a:hover {
+        color: #ffffff;
+      }
+      .skillset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .skill-tag {
+        background: rgba(255, 255, 255, 0.07);
+        padding: 4px 11px;
+        border-radius: 30px;
+        font-size: 11px;
+        font-weight: 400;
+        color: #cfdde9;
+        letter-spacing: 0.2px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .skill-tag.highlight {
+        background: #2a5f82;
+        color: #fff;
+        border-color: #3f7aa3;
+      }
+      .lang-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 3px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .lang-item span:last-child {
+        color: #9bbdd6;
+        font-weight: 300;
+      }
+
+      /* MAIN CONTENT */
+      .main {
+        padding: 32px 32px 28px 28px;
+        background: #ffffff;
+      }
+      .main h2 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: #1b3a57;
+        font-weight: 700;
+        margin: 16px 0 6px 0;
+        border-bottom: 2px solid #e6edf4;
+        padding-bottom: 5px;
+      }
+      .main h2:first-of-type {
+        margin-top: 0;
+      }
+      .profile-text {
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: #1e2e3f;
+        margin-bottom: 4px;
+      }
+      .profile-text strong {
+        color: #0b2c47;
+        font-weight: 600;
+      }
+      .grid-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 20px;
+        margin: 4px 0 2px;
+      }
+      .grid-item {
+        font-size: 12.5px;
+        line-height: 1.5;
+        color: #1a2c3e;
+        padding-left: 6px;
+      }
+      .grid-item .label {
+        font-weight: 600;
+        color: #1a3a57;
+        display: inline-block;
+        min-width: 72px;
+      }
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 10px;
+        font-size: 12.5px;
+        color: #1e3347;
+      }
+      .tech-list span {
+        background: #f0f5fa;
+        padding: 2px 12px;
+        border-radius: 30px;
+        font-weight: 400;
+        border: 1px solid #e0e9f0;
+      }
+      .exp-item {
+        margin-bottom: 8px;
+      }
+      .exp-item .exp-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        font-size: 13px;
+        color: #0b2a45;
+        flex-wrap: wrap;
+      }
+      .exp-item .exp-header .company {
+        font-weight: 400;
+        color: #3b5b78;
+      }
+      .exp-item .exp-date {
+        font-size: 11.5px;
+        color: #3d637f;
+        margin-bottom: 1px;
+      }
+      .exp-item .exp-desc {
+        font-size: 12.5px;
+        color: #1f3449;
+        line-height: 1.5;
+        margin-top: 2px;
+        padding-left: 2px;
+      }
+      .exp-item .exp-desc ul {
+        margin-top: 2px;
+        padding-left: 0;
+      }
+      .exp-item .exp-desc ul li {
+        display: block;
+        padding: 0 0 0 14px;
+        position: relative;
+        font-size: 12.5px;
+        line-height: 1.5;
+        margin-bottom: 0px;
+      }
+      .exp-item .exp-desc ul li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: #2b6c9e;
+        font-size: 13px;
+      }
+      .project-highlight {
+        background: #f7faff;
+        border-left: 3px solid #2b6c9e;
+        padding: 6px 14px;
+        border-radius: 0 6px 6px 0;
+        font-size: 12.5px;
+        color: #142b40;
+        margin: 4px 0 2px;
+      }
+      .project-highlight strong {
+        color: #0b2c47;
+      }
+      .highlight-tag {
+        display: inline-block;
+        background: #eaf3fb;
+        color: #0b2c47;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 0 10px;
+        border-radius: 20px;
+        border: 1px solid #c5d9eb;
+        margin-left: 4px;
+      }
+      .footer-note {
+        font-size: 10px;
+        color: #7c93ab;
+        border-top: 1px solid #eaf0f5;
+        margin-top: 14px;
+        padding-top: 10px;
+        text-align: right;
+        letter-spacing: 0.3px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 720px) {
+        .cv {
+          grid-template-columns: 1fr;
+          border-radius: 12px;
+        }
+        .sidebar {
+          padding: 24px 20px;
+        }
+        .main {
+          padding: 22px 20px;
+        }
+        .grid-2col {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+        .cv {
+          box-shadow: none;
+          border-radius: 0;
+        }
+        .sidebar {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .avatar-circle {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .skill-tag {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="avatar">
+          <!-- <div class="avatar-circle"><span>MB</span></div> -->
+          <img class="avatar-circle" src="photo_cv.jpg" alt="foto-profilo" />
+          <h1>Marco Brusca</h1>
+          <span class="title-role">Full Stack Developer Junior</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="sidebar-section">
+          <h3>Contatti</h3>
+          <div class="contact-item"><i>📞</i> (+39) 334 7838598</div>
+          <div class="contact-item">
+            <i>✉</i>
+            <a href="mailto:marco19_70@hotmail.it">marco19_70@hotmail.it</a>
+          </div>
+          <div class="contact-item"><i>📍</i> Monreale (PA), Italia</div>
+          <div class="contact-item">
+            <i>
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                        0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                        -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+                        -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                        .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+                        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07
+                        -.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+            </i>
+            <a href="https://github.com/marco19-sketch" target="_blank"
+              >marco19-sketch</a
+            >
+          </div>
+          <div class="contact-item">
+            <i>
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                        0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                        -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+                        -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                        .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+                        2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07
+                        -.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+            </i>
+            <a href="https://github.com/arces2026" target="_blank">arces2026</a>
+          </div>
+          <div class="contact-item">
+            <i>🔗</i>
+            <a
+              href="https://linkedin.com/in/marco-brusca-29a36617b"
+              target="_blank"
+              >linkedin.com/in/marco-brusca</a
+            >
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Soft Skills</h3>
+          <div class="skillset">
+            <span class="skill-tag highlight">Problem Solving</span>
+            <span class="skill-tag highlight">Team Collaboration</span>
+            <span class="skill-tag">Comunicazione Tecnica</span>
+            <span class="skill-tag">Adattabilità</span>
+            <span class="skill-tag">Security Mindset</span>
+            <span class="skill-tag">Apprendimento Autonomo</span>
+            <span class="skill-tag">Rispetto Scadenze</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Lingue</h3>
+          <div class="lang-item">
+            <span>Italiano</span><span>Madrelingua</span>
+          </div>
+          <div class="lang-item">
+            <span>Inglese</span><span>C1/C2 (Avanzato)</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section" style="margin-top: auto">
+          <h3>Certificazioni</h3>
+          <div style="font-size: 12px; line-height: 1.6; color: #cbdae6">
+            <div>• JavaScript v9 – freeCodeCamp</div>
+            <div>• Responsive Web Design V9 – freeCodeCamp</div>
+            <div>• Relational Database v8 – freeCodeCamp</div>
+            <div>• CCNA R&S – Cisco (2019)</div>
+            <div>• CompTIA A+ (2018)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="main">
+        <h2>Profilo</h2>
+        <p class="profile-text">
+          Appassionato di programmazione e in costante aggiornamento, sono uno
+          sviluppatore junior con solide basi nello sviluppo <strong>Full Stack</strong>. Ho una mentalità
+          orientata al <strong>problem solving</strong>, ottima predisposizione al lavoro in team
+          e un forte desiderio di contribuire a progetti innovativi. Sono alla
+          ricerca di una prima esperienza lavorativa o di uno stage in cui poter
+          mettere in pratica le mie competenze e crescere professionalmente.
+        </p>
+
+        <h2>Competenze Tecniche</h2>
+        <div class="grid-2col">
+          <div class="grid-item">
+            <span class="label">Backend</span> Python 3, Django, Django REST,
+            API REST
+          </div>
+          <div class="grid-item">
+            <span class="label">Frontend</span> HTML5, CSS3 (Flexbox/Grid), JS
+            ES6+, Vue 3, TypeScript, Pinia
+          </div>
+          <div class="grid-item">
+            <span class="label">Database</span> SQL (PostgreSQL, MariaDB), NoSQL
+            (Redis, MongoDB, Neo4j)
+          </div>
+          <div class="grid-item">
+            <span class="label">DevOps & Tools</span> Git, Docker, Linux, Bash,
+            VS Code, Postman
+          </div>
+          <div class="grid-item">
+            <span class="label">Metodologie</span> MVC/MVT, RESTful API, Version
+            Control, Responsive Design, JWT
+          </div>
+          <div class="grid-item">
+            <span class="label">Security & AI</span> JWT, OAuth2,
+            <strong style="color: #0b2c47"
+              >RAG (Retrieval-Augmented Generation)</strong
+            >
+            
+          </div>
+        </div>
+
+        <h2>Formazione</h2>
+        <div class="exp-item">
+          <div class="exp-header">
+            Tecnico Sviluppo Software Full Stack
+            <span class="company">ARCES Palermo</span>
+          </div>
+          <div class="exp-date">Dic 2025 – In corso · EQF Livello 5</div>
+          <div class="exp-desc">
+            Copre l'intero stack: reti, ambienti di sviluppo, Git,
+            Python/Django, frontend (HTML, CSS, JS, Vue 3), database
+            (SQL/NoSQL), sicurezza e deployment.
+            <div class="project-highlight">
+              <strong>Progetto Pratico:</strong> BiblioLab — Sistema di gestione
+              catalogo bibliotecario (gestione libri, prestiti, autenticazione,
+              API REST). Sviluppo incrementale con Git e documentazione UML.
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            Maturità tecnica - Diploma di PERITO INDUSTRIALE CAPOTECNICO -
+            Specializzazione : ELETTROTECNICA e AUTOMAZIONE
+            <span class="company">ITIS Vittorio Emanuele III </span>
+          </div>
+          <div class="exp-date">1996 - 1997 · EQF Livello 4</div>
+          <div class="exp-desc">
+            Diploma di Perito Industriale Capotecnico in Elettrotecnica e
+            Automazione: progettazione e manutenzione di impianti elettrici,
+            programmazione PLC, automazione industriale e diagnostica guasti,
+            con conoscenza delle norme CEI e sicurezza degli impianti.
+          </div>
+        </div>
+
+        <div class="exp-item" style="margin-top: 2px">
+          <div class="exp-header">
+            Certificazioni freeCodeCamp <span class="company">(2025)</span>
+          </div>
+          <div class="exp-desc" style="font-size: 12px">
+            <span
+              style="background: #f0f5fa; padding: 0 8px; border-radius: 16px"
+              >JavaScript v9</span
+            >
+            <span
+              style="background: #f0f5fa; padding: 0 8px; border-radius: 16px"
+              >Responsive Web Design V9</span
+            >
+            <span
+              style="background: #f0f5fa; padding: 0 8px; border-radius: 16px"
+              >Relational Database V9</span
+            >
+            <span
+              style="background: #f0f5fa; padding: 0 8px; border-radius: 16px"
+              >Python 3.x V9</span
+            >
+          </div>
+        </div>
+
+        <h2>Esperienza Lavorativa</h2>
+        <div class="exp-item">
+          <div class="exp-header">
+            Tecnico Elettricista/Elettronico
+            <span class="company">Freelance · Palermo</span>
+          </div>
+          <div class="exp-date">2011 – 2023</div>
+          <div class="exp-desc">
+            <ul>
+              <li>
+                Diagnostica e riparazione hardware/software su PC, Mac e
+                smartphone.
+              </li>
+              <li>
+                Installazione e configurazione di impianti di videosorveglianza
+                IP e sistemi elettrici.
+              </li>
+              <li>
+                Approccio metodico al problem solving e gestione autonoma dei
+                progetti.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            Operatore Outbound Call Center
+            <span class="company">Almaviva · Palermo</span>
+          </div>
+          <div class="exp-date">2012</div>
+          <div class="exp-desc">
+            <ul>
+              <li>
+                Gestione delle comunicazioni con i clienti e risoluzione di
+                problematiche.
+              </li>
+              <li>
+                Affinamento delle capacità relazionali e di gestione dello
+                stress.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            Cablatore<span class="company">Coop Job Express · Torino</span>
+          </div>
+          <div class="exp-date">2000</div>
+          <div class="exp-desc">
+            <ul>
+              <li>
+                Installazione e cablaggio di quadri elettrici in sede ed in
+                cantiere
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-note">
+          Autorizzo il trattamento dei miei dati personali ai sensi dell'art. 13
+          d.lgs. 196/2003 e dell'art. 13 GDPR 679/16.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
